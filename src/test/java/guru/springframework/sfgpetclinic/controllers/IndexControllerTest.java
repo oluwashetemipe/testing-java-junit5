@@ -1,6 +1,7 @@
 package guru.springframework.sfgpetclinic.controllers;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -26,6 +27,7 @@ class IndexControllerTest {
     void oupsHandler(){
         assertThrows(ValueNotFoundException.class,() ->{controller.oupsHandler();});
     }
+    @Disabled("Demo time out")
     @Test
     void testTimeOut(){
         assertTimeout(Duration.ofMillis(100), ()->{
@@ -33,6 +35,7 @@ class IndexControllerTest {
         });
         System.out.println("I got here");
     }
+    @Disabled("Demo time out with diff thread")
     @Test
     void testTimeOutPremptivly(){
         assertTimeoutPreemptively(Duration.ofMillis(100), ()->{
